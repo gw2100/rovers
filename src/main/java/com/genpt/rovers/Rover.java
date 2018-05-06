@@ -18,7 +18,7 @@ public class Rover {
             throw new IllegalInputException("Position input line must be two numbers and a direction. Input line: " + position);
         return land(new Location(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1])), Direction.valueOf(tokens[2].charAt(0)));
     }
-    public Rover land(Location location, Direction direction) {
+    protected Rover land(Location location, Direction direction) {
         this.location = location;
         this.direction = direction;
         return this;
@@ -27,7 +27,7 @@ public class Rover {
         this.boundary = boundary;
         return this;
     }
-    public void move(Command command) {
+    protected void move(Command command) {
         if (command instanceof TurnCommand) {
             TurnCommand turn = (TurnCommand) command;
             if (turn == TurnCommand.L)
