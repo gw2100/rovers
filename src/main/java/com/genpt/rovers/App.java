@@ -17,7 +17,7 @@ public class App {
         List<String> lines = Files.lines(Paths.get(inputFileName)).collect(Collectors.toList());
         Location boundary = Location.valueOf(lines.get(0));
         for (int i = 1; i < lines.size(); i = i + 2) {
-            Rover rover = new Rover().setBoundary(boundary).land(lines.get(i)).move(Command.valuesOf(lines.get(i + 1)));
+            Rover rover = new RoverImpl().setBoundary(boundary).land(lines.get(i)).move(Command.valuesOf(lines.get(i + 1)));
             System.out.println(rover);
         }
     }
